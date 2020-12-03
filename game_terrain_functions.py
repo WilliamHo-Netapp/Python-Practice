@@ -10,7 +10,7 @@ x_coords = []
 y_coords = []
 
 
-
+spawn_point = ""
 obstacle_coords_list = []
 def map_size():
     #separate user inputs with calculations later on
@@ -57,21 +57,26 @@ def potential_spawn():
     spawn_x = random.randint(x_coords[0], x_coords[-1])
     spawn_y = random.randint(y_coords[1], y_coords[-1])
 
-    spawn_coords = spawn_x, spawn_y
-    return spawn_coords
+    spawn_point = spawn_x, spawn_y
+    print(spawn_point)
+    return spawn_point
 
 
-
+# remove this part and make new loop
 def spawn_check():
     potential_spawn()
 
     for coord in obstacle_coords_list:
-        if coord == spawn_coords:
-    
-    while True:
-        if spawn_coords == x in obstacle_coords_list:
+        if coord == spawn_point:
             potential_spawn()
         else:
             break
-
-map_size()
+    for coord in obstacle_coords_list:
+        if coord == spawn_point:
+            potential_spawn()
+        else:
+            break
+    
+    
+    
+spawn_check()
